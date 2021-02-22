@@ -34,7 +34,8 @@ else:
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    ".ngrok.io"
+    ".ngrok.io",
+    os.environ["HOSTNAME"]
 ]
 
 
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "America/Los_Angeles"
+TIME_ZONE = os.environ["TIME_ZONE"]
 
 USE_I18N = True
 
@@ -163,7 +164,7 @@ LOGGING = {
 }
 
 # Celery config
-CELERY_BROKER_URL = "pyamqp://guest@localhost//"
+CELERY_BROKER_URL = os.environ["RABBITMQ_URL"]
 
 
 # token comes from this page: https://api.slack.com/apps/AH99D6ZLH/install-on-team
